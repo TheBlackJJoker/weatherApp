@@ -12,7 +12,6 @@
                     <a href="{{ route('searchView') }}" class="btn btn-danger mt-2">Wyczyść!</a>
                     <input type="submit" value="Szukaj!" class="btn btn-success mt-2">
                 </form>
-
                 @if($content)
                     <h2 class="pt-2">
                         {{ $content->nearest_area[0]->areaName[0]->value }} - {{ $content->current_condition[0]->FeelsLikeC }}°C
