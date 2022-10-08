@@ -1,0 +1,41 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: '3.1'
+services:
+    mysql:
+        image: 'mysql:8.0'
+        working_dir: /application
+        volumes:
+            - '.:/application'
+        environment:
+            - MYSQL_ROOT_PASSWORD=password
+            - MYSQL_DATABASE=weather
+            - MYSQL_USER=weather
+            - MYSQL_PASSWORD=password
+        ports:
+            - '8082:3306'
+
+    webserver:
+        image: 'nginx:alpine'
+        working_dir: /application
+        volumes:
+            - '.:/application'
+            - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+        ports:
+            - '8080:80'
+
+    php-fpm:
+        build: phpdocker/php-fpm
+        working_dir: /application
+        volumes:
+            - '.:/application'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
+
+    workspace:
+        image: laradock/workspace
+        container_name: workspace
+        volumes:
+            - .:/application:cached
+        ports:
+            - "14422:22"
