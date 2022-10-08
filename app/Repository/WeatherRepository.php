@@ -12,16 +12,17 @@ class WeatherRepository
 {
 
     private Request $request;
-    public function __construct(Request $request)
+    private WttrinService $wttrin;
+    public function __construct(Request $request, WttrinService $wttrin)
     {
         $this->request = $request;
+        $this->wttrin = $wttrin;
     }
 
     public function get(): ?object
     {
         if ($this->request->city) {
-            $wttrin = new WttrinService($this->request->city);
-            return $wttrin->get($this->request->city);
+            return $this->wttrin->get($this->request->city);
         } else {
             return null;
         }
