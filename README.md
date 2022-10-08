@@ -14,7 +14,31 @@ Start docker containers
 ```bash
 docker-compose up -d
 ```
-Look up application
+
+Copy .env.example to .env
+```bash
+mv .env.example .env
+```
+
+Go into php container and install dependencies and artisan generate key
+```bash
+docker exec -it "weatherapp_php-fpm_1" /bin/bash
+```
+```bash
+composer install
+```
+```bash
+php artisan key:generate
+```
+If you have problem with Storage permission
+```bash
+sudo chgrp -R www-data storage
+```
+```bash
+sudo chmod -R ug+rwx storage 
+```
+
+DONE - Look up application
 ```bash
 http://localhost:8080
 ```
