@@ -5,19 +5,18 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WeatherSearchRequest;
-use App\Repository\WeatherRepository;
-use App\Services\WttrinService;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Interfaces\Weather;
+
 
 class WeatherController extends Controller
 {
-    public function __construct(private WttrinService $wttrin)
+    public function __construct(private Weather $weather)
     {
     }
 
     public function searchView(WeatherSearchRequest $request): View
     {
-        return view('weather', ['content' => $this->wttrin->get($request->city)]);
+        return view('weather', ['content' => $this->weather->get($request->city)]);
     }
 }
