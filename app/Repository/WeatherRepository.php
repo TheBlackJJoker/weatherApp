@@ -11,13 +11,12 @@ use Illuminate\Http\Request;
 class WeatherRepository
 {
 
-    public function __construct(private Request $request, private WttrinService $wttrin)
+    public function __construct(private WttrinService $wttrin)
     {
-        $this->city = $request->city;
     }
 
-    public function get(): ?object
+    public function get($search): ?object
     {
-        return $this->wttrin->get($this->city);
+        return $this->wttrin->get($search);
     }
 }

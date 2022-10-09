@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Repository\WeatherRepository;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class WeatherController extends Controller
 {
@@ -13,8 +14,8 @@ class WeatherController extends Controller
     {
     }
 
-    function searchView(): Object
+    public function searchView(Request $request): View
     {
-        return view('weather', ['content' => $this->weatherRepository->get()]);
+        return view('weather', ['content' => $this->weatherRepository->get($request->city)]);
     }
 }
