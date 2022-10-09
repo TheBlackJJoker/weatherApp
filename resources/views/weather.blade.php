@@ -8,7 +8,10 @@
             <div class="col-12 text-center">
                 <h1>WeatherApp</h1>
                 <form action="#" method="GET">
-                    <input type="test" name="city" class="form-control w-100 mt-2">
+                    <input type="text" name="city" class="form-control w-100 mt-2">
+                    @error('city')
+                        {{ $message }}
+                    @enderror
                     <a href="{{ route('searchView') }}" class="btn btn-danger mt-2">Wyczyść!</a>
                     <input type="submit" value="Szukaj!" class="btn btn-success mt-2">
                 </form>

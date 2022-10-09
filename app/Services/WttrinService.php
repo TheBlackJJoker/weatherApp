@@ -23,6 +23,7 @@ class WttrinService
             return null;
         }
 
+        dd(json_decode($response->getBody()->getContents(), false));
         return json_decode($response->getBody()->getContents(), false);
     }
 }
