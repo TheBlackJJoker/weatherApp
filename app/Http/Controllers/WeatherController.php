@@ -17,6 +17,9 @@ class WeatherController extends Controller
 
     public function searchView(WeatherSearchRequest $request): View
     {
-        return view('weather', ['content' => $this->weather->get($request->city), 'input' => $request->city]);
+        return view('weather', [
+            'content' => $this->weather->get($request->city),
+            'input' => $request->city
+        ]);
     }
 }

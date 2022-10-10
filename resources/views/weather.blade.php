@@ -17,7 +17,10 @@
                 </form>
                 @if($content)
                     <h2 class="pt-5">
-                        {{ $content->tempC }}°C<br>{{ $content->description }}
+                        <div>{{ $content->tempC }}°C</div>
+                        <div>{{ $content->description }}</div>
+                        <div style="font-size: 18px;">{{ $content->location }}, {{ $content->country }}</div>
+                        <div style="font-size: 14px;">({{ $content->latitude }}, {{ $content->longitude }})</div>
                     </h2>
                 @endif
             </div>
