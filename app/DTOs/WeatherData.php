@@ -10,8 +10,8 @@ use Illuminate\Support\Collection;
 final class WeatherData
 {
     public function __construct(
-        public readonly Collection $tempC,
-        public readonly Collection $description
+        public readonly int $tempC = 0,
+        public readonly string $description = ''
     ) {
     }
 
@@ -19,6 +19,6 @@ final class WeatherData
     {
         $data = json_decode($response->getBody()->getContents(), false);
 
-        return new self(collect($data->current_condition[0]->temp_C), collect($data->current_condition[0]->lang_pl[0]->value));
+        return new self(intval($data->current_condition[0]->temp_C), $data->current_condition[0]->lang_pl[0]->value);
     }
 }

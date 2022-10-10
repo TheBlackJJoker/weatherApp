@@ -19,6 +19,8 @@ class WttrinService implements Weather
 
     public function get($search): ?object
     {
+        if (!$search) return null;
+
         try {
             $response = $this->client->request("GET", "https://wttr.in/" . $search . "?lang=pl&format=j1");
         } catch (ClientException $e) {
