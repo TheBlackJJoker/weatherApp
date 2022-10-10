@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\DTOs\WeatherData;
 use App\Interfaces\Weather;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -12,7 +13,7 @@ use GuzzleHttp\Exception\ClientException;
 class WttrinService implements Weather
 {
 
-    public function __construct(private Client $client)
+    public function __construct(private Client $client, private WeatherData $weatherData)
     {
     }
 
@@ -23,6 +24,7 @@ class WttrinService implements Weather
         } catch (ClientException $e) {
             return null;
         }
-        return json_decode($response->getBody()->getContents(), false);
+
+        return $this->weatherData::fromWttrin($response);
     }
 }

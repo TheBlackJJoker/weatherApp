@@ -17,7 +17,8 @@
                 </form>
                 @if($content)
                     <h2 class="pt-2">
-                        {{ $content->nearest_area[0]->areaName[0]->value }} - {{ $content->current_condition[0]->FeelsLikeC }}°C
+                        @json($content)
+                        {{-- {{ $content->nearest_area[0]->areaName[0]->value }} - {{ $content->current_condition[0]->FeelsLikeC }}°C --}}
                     </h2>
                 @endif
             </div>
