@@ -14,4 +14,7 @@ use App\Http\Controllers\WeatherController;
 |
 */
 
-Route::get('/', [WeatherController::class, 'searchView'])->name('searchView');
+
+Route::controller(WeatherController::class)->group(function () {
+    Route::get('/', 'searchView')->name('searchView');
+});
