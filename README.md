@@ -56,3 +56,7 @@ or
 ```bash
 php artisan weather:get {city}
 ```
+API
+```bash
+localhost:8080/api/weather/get/{city}
+```
