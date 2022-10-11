@@ -30,6 +30,9 @@ composer install
 ```bash
 php artisan key:generate
 ```
+```bash
+php artisan storage:link
+```
 If you have problem with Storage permission
 ```bash
 sudo chgrp -R www-data storage
