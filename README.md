@@ -50,7 +50,7 @@ Artisan command check weather
 docker exec -it "weatherapp_php-fpm_1" /bin/bash
 ```
 ```bash
-php artisan weather:get {city}
+php artisan weather:get
 ```
 or
 ```bash
