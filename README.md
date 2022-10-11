@@ -38,7 +38,17 @@ sudo chgrp -R www-data storage
 sudo chmod -R ug+rwx storage 
 ```
 
-DONE - Look up application
+## Usage/Examples
+
+Web Server
 ```bash
-http://localhost:8080
+localhost:8080
+```
+
+Artisan command check weather
+```bash
+docker exec -it "weatherapp_php-fpm_1" /bin/bash
+```
+```bash
+php artisan weather:get {city}
 ```
