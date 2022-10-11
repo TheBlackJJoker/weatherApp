@@ -12,17 +12,19 @@
                     @error('city')
                         <div>{{ $message }}</div>
                     @enderror
-                    <div id="Cities" class="p-2" style="font-size: 14px;"></div>
                     <a href="{{ route('searchView') }}" class="btn btn-lg btn-danger mt-2">Wyczyść!</a>
                     <input type="submit" value="Szukaj!" class="btn btn-lg btn-success mt-2">
                 </form>
+
+                <div id="Cities" class="p-2" style="font-size: 14px;"></div>
+
                 @if($content)
                     <h2 class="pt-5">
                         <div>{{ $content->tempC }}°C</div>
                         <div>{{ $content->description }}</div>
                         <div style="font-size: 18px;">{{ $content->location }}, {{ $content->country }}</div>
                         <div style="font-size: 14px;">({{ $content->latitude }}, {{ $content->longitude }})</div>
-                        <button class="btn btn-secondary mt-3" onClick="storeLocation('{{ $input }}')">Zapisz lokalizację!</button>
+                        <button class="btn btn-sm btn-secondary mt-3" onClick="storeLocation('{{ $input }}')">Zapisz lokalizację!</button>
                     </h2>
                 @endif
             </div>
