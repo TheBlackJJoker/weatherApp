@@ -9,12 +9,12 @@ use GuzzleHttp\Psr7\Response;
 final class WeatherData
 {
     public function __construct(
-        public readonly int $tempC = 0,
-        public readonly string $description = '',
-        public readonly string $location = '',
-        public readonly string $country = '',
-        public readonly float $latitude = 0.0,
-        public readonly float $longitude = 0.0
+        public readonly int $tempC,
+        public readonly string $description,
+        public readonly string $location,
+        public readonly string $country,
+        public readonly float $latitude,
+        public readonly float $longitude
     ) {
     }
 

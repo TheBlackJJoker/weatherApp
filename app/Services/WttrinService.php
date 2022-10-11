@@ -13,7 +13,7 @@ use GuzzleHttp\Exception\ClientException;
 class WttrinService implements Weather
 {
 
-    public function __construct(private Client $client, private WeatherData $weatherData)
+    public function __construct(private Client $client)
     {
     }
 
@@ -27,6 +27,6 @@ class WttrinService implements Weather
             return null;
         }
 
-        return $this->weatherData::fromWttrin($response);
+        WeatherData::fromWttrin($response);
     }
 }

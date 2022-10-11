@@ -42,6 +42,5 @@ class Weather extends Command
         }
 
         $this->info($now->tempC . '°C | ' . $now->description . ' - ' . $now->location . ', ' . $now->country);
-        return 0;
     }
 }

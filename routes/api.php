@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\WeatherAPIController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\API\WeatherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(WeatherAPIController::class)->group(function () {
+Route::controller(WeatherController::class)->group(function () {
     Route::get('/weather/get/{city}', 'get');
 });
