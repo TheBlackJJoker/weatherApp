@@ -52,3 +52,7 @@ docker exec -it "weatherapp_php-fpm_1" /bin/bash
 ```bash
 php artisan weather:get {city}
 ```
+or
+```bash
+php artisan weather:get {city}
+```
