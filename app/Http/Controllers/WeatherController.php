@@ -11,14 +11,12 @@ use App\Interfaces\Weather;
 
 class WeatherController extends Controller
 {
-    public function __construct(private Weather $weather)
+    public function __invoke(WeatherSearchRequest $request, Weather $weather): View
     {
-    }
+        $content = $weather->get($request->city);
 
-    public function searchView(WeatherSearchRequest $request): View
-    {
         return view('weather', [
-            'content' => $this->weather->get($request->city),
+            'content' => $content,
             'input' => $request->city
         ]);
     }

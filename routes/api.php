@@ -14,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(WeatherController::class)->group(function () {
-    Route::get('/weather/get/{city}', 'get');
-});
+Route::get('/weather/get/{city}', WeatherController::class);

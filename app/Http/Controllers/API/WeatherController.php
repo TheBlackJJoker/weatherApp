@@ -6,15 +6,11 @@ use App\Interfaces\Weather;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
 
-class WeatherAPIController extends Controller
+class WeatherController extends Controller
 {
-
-    public function __construct(private Weather $weather)
+    public function __invoke(string $city, Weather $weather): JsonResponse
     {
-    }
-
-    public function get($city)
-    {
-        return new JsonResponse($this->weather->get($city));
+        $weatherData = $weather->get($city);
+        return new JsonResponse(["data" => $weatherData]);
     }
 }
