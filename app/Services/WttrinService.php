@@ -27,6 +27,6 @@ class WttrinService implements Weather
             return null;
         }
 
-        WeatherData::fromWttrin($response);
+        return WeatherData::fromWttrin($response);
     }
 }
