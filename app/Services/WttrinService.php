@@ -18,7 +18,7 @@ class WttrinService implements Weather
     {
     }
 
-    public function get(string $search): ?WeatherData
+    public function get(string $search = null): ?WeatherData
     {
         if (!$search) return null;
 
