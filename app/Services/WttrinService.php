@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\DTOs\WeatherData;
+use App\Exceptions\WttrinException;
 use App\Interfaces\Weather;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -17,7 +18,7 @@ class WttrinService implements Weather
     {
     }
 
-    public function get($search): ?object
+    public function get(string $search): ?WeatherData
     {
         if (!$search) return null;
 
