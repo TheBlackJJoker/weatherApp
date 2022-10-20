@@ -17,7 +17,7 @@ docker-compose up -d
 
 Copy .env.example to .env
 ```bash
-mv .env.example .env
+cp .env.example .env
 ```
 
 Go into php container and install dependencies and artisan generate key
