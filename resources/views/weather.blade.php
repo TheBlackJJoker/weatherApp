@@ -18,14 +18,18 @@
 
                 <div id="Cities" class="p-2" style="font-size: 14px;"></div>
 
-                @if($content)
-                    <h2 class="pt-5">
-                        <div>{{ $content->tempC }}°C</div>
-                        <div>{{ $content->description }}</div>
-                        <div style="font-size: 18px;">{{ $content->location }}, {{ $content->country }}</div>
-                        <div style="font-size: 14px;">({{ $content->latitude }}, {{ $content->longitude }})</div>
-                        <button class="btn btn-sm btn-secondary mt-3" onClick="storeLocation('{{ $input }}')">Zapisz lokalizację!</button>
-                    </h2>
+                @if(!$error)
+                    @if($content)
+                        <h2 class="pt-5">
+                            <div>{{ $content->tempC }}°C</div>
+                            <div>{{ $content->description }}</div>
+                            <div style="font-size: 18px;">{{ $content->location }}, {{ $content->country }}</div>
+                            <div style="font-size: 14px;">({{ $content->latitude }}, {{ $content->longitude }})</div>
+                            <button class="btn btn-sm btn-secondary mt-3" onClick="storeLocation('{{ $input }}')">Zapisz lokalizację!</button>
+                        </h2>
+                    @endif
+                @else
+                    <h3 class="text-danger">BŁĄD: {{ $error }}</h3>
                 @endif
             </div>
         </div>

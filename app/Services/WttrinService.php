@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Services;
 
-use App\DTOs\WeatherData;
-use App\Exceptions\WttrinException;
-use App\Interfaces\Weather;
+use Exception;
 use GuzzleHttp\Client;
+use App\DTOs\WeatherData;
+use App\Interfaces\Weather;
+use App\Exceptions\WttrinException;
 use GuzzleHttp\Exception\ClientException;
 
 
@@ -25,7 +26,7 @@ class WttrinService implements Weather
         try {
             $response = $this->client->request("GET", "https://wttr.in/" . $search . "?lang=pl&format=j1");
         } catch (ClientException $e) {
-            return null;
+            return throw new Exception('Nie znaleziono stacji meteorologicznej!');;
         }
 
         return WeatherData::fromWttrin($response);
