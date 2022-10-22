@@ -20,11 +20,3 @@ services:
         volumes:
             - '.:/application'
             - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
-
-    workspace:
-        image: laradock/workspace
-        container_name: workspace
-        volumes:
-            - .:/application:cached
-        ports:
-            - "14422:22"
