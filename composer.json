@@ -13,6 +13,7 @@
         "laravel/ui": "^4.0"
     },
     "require-dev": {
+        "blumilksoftware/codestyle": "^1.8",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
@@ -46,7 +47,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "cs": "./vendor/bin/php-cs-fixer fix --dry-run --diff --config codestyle.php",
+        "csf": "./vendor/bin/php-cs-fixer fix --diff --config codestyle.php"
     },
     "extra": {
         "laravel": {

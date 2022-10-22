@@ -14,9 +14,8 @@ final class WeatherData
         public readonly string $location,
         public readonly string $country,
         public readonly float $latitude,
-        public readonly float $longitude
-    ) {
-    }
+        public readonly float $longitude,
+    ) {}
 
     public static function fromWttrin(Response $response): self
     {
@@ -28,7 +27,7 @@ final class WeatherData
             $data->nearest_area[0]->areaName[0]->value,
             $data->nearest_area[0]->country[0]->value,
             floatval($data->nearest_area[0]->latitude),
-            floatval($data->nearest_area[0]->longitude)
+            floatval($data->nearest_area[0]->longitude),
         );
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\API;
 
-use App\Interfaces\Weather;
 use App\Http\Controllers\Controller;
+use App\Interfaces\Weather;
 use Exception;
 use Illuminate\Http\JsonResponse;
 

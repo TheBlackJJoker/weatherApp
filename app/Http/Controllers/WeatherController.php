@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WeatherSearchRequest;
-use Illuminate\View\View;
 use App\Interfaces\Weather;
 use Exception;
+use Illuminate\View\View;
 
 class WeatherController extends Controller
 {
@@ -22,10 +22,10 @@ class WeatherController extends Controller
             $error = $e->getMessage();
         }
 
-        return view('weather', [
-            'content' => $content,
-            'input' => $request->city,
-            'error' => $error
+        return view("weather", [
+            "content" => $content,
+            "input" => $request->city,
+            "error" => $error,
         ]);
     }
 }

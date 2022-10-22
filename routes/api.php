@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Http\Controllers\API\WeatherController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/weather/get/{city}', WeatherController::class);
+Route::get("/weather/get/{city}", WeatherController::class);
