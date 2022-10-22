@@ -50,7 +50,7 @@ localhost:8080
 
 Artisan command check weather
 ```bash
-docker exec -it "weatherapp_php-fpm_1" /bin/bash
+docker exec -it "php" /bin/bash
 ```
 ```bash
 php artisan weather:get
@@ -63,3 +63,18 @@ API
 ```bash
 localhost:8080/api/weather/get/{city}
 ```
+
+**Blumilk CodeStyle**<br>
+Go to php container
+```bash
+docker exec -it "php" /bin/bash
+```
+Check codestyle
+```bash
+composer cs
+```
+Fix codestyle
+```bash
+composer csf
+```
+
