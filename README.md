@@ -22,7 +22,7 @@ cp .env.example .env
 
 Go into php container and install dependencies and artisan generate key
 ```bash
-docker exec -it "weatherapp_php-fpm_1" /bin/bash
+docker exec -it "php" /bin/bash
 ```
 ```bash
 composer install
