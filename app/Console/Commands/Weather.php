@@ -27,18 +27,13 @@ class Weather extends Command
      * @return int
      */
 
-    public function __construct(private InterfacesWeather $weather)
-    {
-        parent::__construct();
-    }
-
-    public function handle()
+    public function handle(InterfacesWeather $weather)
     {
         if ($this->argument('city'))
-            $now = $this->weather->get($this->argument('city'));
+            $now = $weather->get($this->argument('city'));
         else {
             $answer = $this->ask("Dla jakiej miejscowości chcesz sprawdzić pogodę?");
-            $now = $this->weather->get($answer);
+            $now = $weather->get($answer);
         }
 
         $this->info($now->tempC . '°C | ' . $now->description . ' - ' . $now->location . ', ' . $now->country);
