@@ -1,28 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Httpd;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class WeatherTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testShowWeatherSearch()
+    public function testShowWeatherSearch(): void
     {
-        $response = $this->get('/');
+        $response = $this->get("/");
 
         $response->assertStatus(200);
     }
 
-    public function testShowWeatherForLegnica()
+    public function testShowWeatherForLegnica(): void
     {
-        $response = $this->get('/?city=Lengnica');
+        $response = $this->get("/?city=Legnica");
 
         $response->assertStatus(200);
     }

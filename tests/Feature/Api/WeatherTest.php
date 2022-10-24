@@ -1,30 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tests\Feature\Api;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class WeatherTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testWeatherForLegnica()
+    public function testWeatherForLegnica(): void
     {
-        $response = $this->get('/api/weather/get/Legnica');
+        $response = $this->get("/api/weather/get/Legnica");
 
         $response->assertStatus(200)
             ->assertJson([
-                "data" =>  [
-                    "location" => "Legnica",
+                "data" => [
                     "country" => "Poland",
                     "latitude" => 51.2,
-                    "longitude" => 16.2
-                ]
+                    "longitude" => 16.2,
+                ],
             ]);
     }
 }
