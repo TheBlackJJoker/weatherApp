@@ -32,7 +32,7 @@ class WttrinService implements Weather
         return $this->dto($response);
     }
 
-    private function dto(Response $response)
+    private function dto(Response $response): WeatherData
     {
         $data = json_decode($response->getBody()->getContents(), false);
 
